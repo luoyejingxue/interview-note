@@ -4,11 +4,12 @@
 * [JAVA](java.md)
   * [Java基础](java/javaji-chu.md)
     * [集合](java/javaji-chu/ji-he.md)
-  * JVM
+  * [JVM](java/jvm.md)
   * 线程
+  * Spring
 * [算法](suan-fa.md)
 * [架构](jia-gou.md)
-  * 分布式架构
+  * [分布式架构](jia-gou/fen-bu-shi-jia-gou.md)
 * [存储](cun-chu.md)
   * [MySQL](cun-chu/mysql.md)
   * [Redis](cun-chu/redis.md)
