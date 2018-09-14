@@ -3,7 +3,6 @@
 * [前言](README.md)
 * [JAVA](java.md)
   * [Java基础](java/javaji-chu.md)
-    * [集合](java/javaji-chu/ji-he.md)
   * [JVM](java/jvm.md)
   * 线程
   * Spring
