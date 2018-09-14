@@ -3,6 +3,9 @@
 * [前言](README.md)
 * [JAVA](java.md)
   * [Java基础](java/javaji-chu.md)
+    * [集合](java/javaji-chu/ji-he.md)
+  * JVM
+  * 线程
 * [算法](suan-fa.md)
 * [架构](jia-gou.md)
   * 分布式架构
