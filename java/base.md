@@ -232,9 +232,66 @@
 	2、 对于一个final变量，如果是基本数据类型，那么其数值就不在更改，如果是引用类型，那么在初始化后便不能在让其指向另外一个对象
 	3、 对于final方法，可以将方法锁定，如果以final修饰，子类不能在更改；第二个原因是在早起版本会将final方法转为内嵌调用，提高效率
 		类中的private方法默认是final的
-		
-17. #### static
-	
-18. #### this
 
-19. #### super
+17. #### this
+		this用于引用类指向当前实例
+		在类中this，可以访问当前的实例的变量和方法
+		this调用本类的构造方法时，需要放在首行
+		this不可在static方法中使用
+
+18. #### super
+		super用于从子类访问父类的变量和方法
+		super调用父类中的其他构造方法时，调用要放在构造方法的首行
+		super不能在static方法中使用
+
+19. #### static
+		1、 修饰成员变量和成员方法
+			被static修饰的成员属于类，不单属于这个类的某个对象，被类所共享
+		2、 静态代码块
+			静态代码块定义在类中的方法外，静态代码块在非静态代码块之前执行
+			（执行顺序：静态代码块 -> 非静态代码块 -> 构造方法）
+			不管创建多少对象，静态代码块只执行一次
+		3、 静态内部类
+			静态内部类不需要依赖外围类的创建，非静态内部类有一个引用，指向创建它的外部类
+			他不能使用任何外部类的非static成员变量和方法
+		4、 静态导包（1.5后的特性）
+
+```java
+	public class TestA {
+		{
+			System.out.println("Demo A");
+		}
+		
+		public TestA(){
+			System.out.println("TestA constructor");
+		}
+
+		static{
+			System.out.println("TestA static");
+		}
+	}
+
+	public class TestB extend TestA{
+		{
+			System.out.println("Demo B");
+		}
+
+		public TestB(){
+			System.out.printnln("TestB constructor");
+		}
+
+		static {
+			System.out.println("TestA static");
+		}
+	}
+
+	public class ABTest{
+		public static final main(String[] args){
+			TestB b = new TestB();
+		}
+	}
+
+	//执行结果
+	
+	
+```
