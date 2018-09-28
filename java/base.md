@@ -65,3 +65,46 @@
 	|作用范围|属于类|属于方法|
 	|修饰|可被访问修饰符、static、final修饰|仅能被final修饰|
 	|内存存储方式|由于属于类，对象存在堆内存中|属于方法，存在栈内存中|
+	|生存周期|随着类的创建、销毁|随着方法的调用|
+
+6. #### 静态方法与实例方法的区别
+	外部调用静态方法，可使用类名.方法名，也可以使用对象名.方法名，但实例方法只可使用后者
+	静态方法访问本类的成员时，只允许访问静态成员，实例方法无限制
+
+7. #### == 与 equals
+	##### ==
+		作用是判断两个对象的地址是否相等。即判断两个对象是否为同一个对象。
+		基本数据类型==比较的是值，引用数据类型==比较的是内存地址
+		对于Integer -128——127（jvm的默认设置）比较的也是值，由于缓存，其他比较的是内存地址
+	##### equals
+		判断两个对象是否相等
+		如果没有重写equals方法，那么equals 调用的Object里面的equals方法，里面的实现是使用的==，即同==
+		如果重写了equals方法，根据重写的内容，来判断是否相等，我们也可以根据对象的内容来做判断
+		注意：String str = "hello";  这样是先在常量池中查找对应的字符串，然后把引用指向该地址
+	##### 代码示例
+	```
+		public class EqualsDemo {
+			public static void main(String[] args) {
+				String a = new String("ab"); // a 为一个引用
+				String b = new String("ab"); // b为另一个引用,对象的内容一样
+				String aa = "ab"; // 放在常量池中
+				String bb = "ab"; // 从常量池中查找
+				System.out.println("aa==bb -> "+(aa==bb));// true
+
+				System.out.println("a==b -> "+(a==b));// false，非同一对象
+				System.out.println("a EQ b -> " + (a.equals(b)));// true
+				System.out.println("42 == 42.0 -> "+(42==42.0));// true
+
+				Integer i0 = 50;
+				Integer i1 = 50;
+				Integer i2 = new Integer(50);
+
+				Integer i3 = 300;
+				Integer i4 = 300;
+
+				System.out.println("i0==i1 -> "+(i0==i1));//自动拆装箱时，会使用Integer.valueof()创建，如果在整数缓存中直接返回值，否则创建对象,返回true
+				System.out.println("i3==i4 -> "+(i3==i4));// false，非同一对象
+				System.out.println("i1==i2 -> "+(i1==i2));//由于默认的IntegerCache的值是从-128——127,而300不再其中，所以返回的是对象，对象不相等，返回false
+			}
+		}
+	```
