@@ -82,7 +82,7 @@
 		如果重写了equals方法，根据重写的内容，来判断是否相等，我们也可以根据对象的内容来做判断
 		注意：String str = "hello";  这样是先在常量池中查找对应的字符串，然后把引用指向该地址
 	##### 代码示例
-	```
+	```java
 		public class EqualsDemo {
 			public static void main(String[] args) {
 				String a = new String("ab"); // a 为一个引用
