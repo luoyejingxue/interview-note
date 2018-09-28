@@ -179,4 +179,4 @@
 		其他阻塞：运行中的线程执行sleep或者join()或者发起IO请求,JVM会把线程置为阻塞状态
 	5. 死亡
 		线程执行结束或者因异常退出，线程的生命周期结束，死亡的线程不可复生
-	6. [图示](https://github.com/luoyejingxue/interview-note/blob/master/java/thread.jpg)
+	6. ![](https://github.com/luoyejingxue/interview-note/blob/master/java/thread.jpg)
