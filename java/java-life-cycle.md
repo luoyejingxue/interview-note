@@ -12,18 +12,18 @@
 	加载、验证、准备、解析、初始化
 	图示
 
-![](https://github.com/luoyejingxue/interview-note/blob/master/java/class-lief-cycle.jpg)
+![](https://github.com/luoyejingxue/interview-note/blob/master/java/class-life-cycle.jpg)
 
 	##### 类的加载机制
 		类的加载器分四大类：
 ![](https://github.com/luoyejingxue/interview-note/blob/master/java/classLoader.png)
 
-		|类型|语言|默认加载路径|配置加载路径|
-		|:-----:| :----: | :-----:|:-----:|
-		|根加载器 Bootstrap Class Loader|C++|JAVA_HOME/JRE/lib/rt.jar|-Xbootclasspath 指定目录|
-		|扩展加载器 Extension Class Loader|JAVA|JAVA_HOME/JRE/lib/ext/*.jar|-Djava.ext.dirs 指定目录|
-		|系统应用加载器 App Class Loader|JAVA|系统classpath|-Djava.class.path 指定目录|
-		|用户自定义加载器 Customer Class Loader|JAVA|自定义目录|自定义目录|	
+|类型|语言|默认加载路径|配置加载路径|
+|:-----:| :----: | :-----:|:-----:|
+|根加载器 Bootstrap Class Loader|C++|JAVA_HOME/JRE/lib/rt.jar|-Xbootclasspath 指定目录|
+|扩展加载器 Extension Class Loader|JAVA|JAVA_HOME/JRE/lib/ext/*.jar|-Djava.ext.dirs 指定目录|
+|系统应用加载器 App Class Loader|JAVA|系统classpath|-Djava.class.path 指定目录|
+|用户自定义加载器 Customer Class Loader|JAVA|自定义目录|自定义目录|	
 		
 		Java程序在执行前都要检查类是否已经被加载
 
@@ -58,14 +58,14 @@
 		非静态类在实例化类，在java堆中创建对象的时候，才会进行初始化操作。
 		初始化的顺序和java源码从上到下的顺序一致。
 		
-		|一定发生类的初始化（主动调用）|不会发生类的初始化（被动调用）|
-		|:-----:| :----: |
-		|main方法所在的类||
-		|new一个类的对象|数组定义类的引用，不会触发初始化|
-		|调用类的静态成员和静态方法|引用常量不会触发，已加入方法区的常量池|
-		|修改类的静态成员的值|访问静态域，只有定义该域的类才被初始化|
-		|初始化子类时，父类没有被初始化，则先初始化父类|通过子类调用父类的静态变量，子类不会初始化，父类会初始化|
-		|使用java.lang.reflect的包对类进行反射调用||
+|一定发生类的初始化（主动调用）|不会发生类的初始化（被动调用）|
+|:-----:| :----: |
+|main方法所在的类||
+|new一个类的对象|数组定义类的引用，不会触发初始化|
+|调用类的静态成员和静态方法|引用常量不会触发，已加入方法区的常量池|
+|修改类的静态成员的值|访问静态域，只有定义该域的类才被初始化|
+|初始化子类时，父类没有被初始化，则先初始化父类|通过子类调用父类的静态变量，子类不会初始化，父类会初始化|
+|使用java.lang.reflect的包对类进行反射调用||
 ```java
 //主动调用和被动调用的区别
 	class NewParent {
