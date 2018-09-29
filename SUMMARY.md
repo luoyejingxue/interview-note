@@ -4,7 +4,7 @@
 * [JAVA](java.md)
   * [Java学习路线图](java/roadmap.md)
   * [Java基础](java/base.md)
-  * [Java类](java/class-loader.md)
+  * [Java类生命周期](java/java-life-cycle.md)
   * [JVM](java/jvm.md)
   * [集合](java/collection.md)
   * [IO](java/io.md)
