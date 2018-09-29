@@ -17,6 +17,7 @@
 	##### 类的加载机制
 		类的加载器分四大类：
 ![](https://github.com/luoyejingxue/interview-note/blob/master/java/classLoader.png)
+
 		|类型|语言|默认加载路径|配置加载路径|
 		|:-----:| :----: | :-----:|:-----:|
 		|根加载器 Bootstrap Class Loader|C++|JAVA_HOME/JRE/lib/rt.jar|-Xbootclasspath 指定目录|
@@ -56,6 +57,7 @@
 		初始化类的静态变量和静态代码块为用户自定义的值。
 		非静态类在实例化类，在java堆中创建对象的时候，才会进行初始化操作。
 		初始化的顺序和java源码从上到下的顺序一致。
+		
 		|一定发生类的初始化（主动调用）|不会发生类的初始化（被动调用）|
 		|:-----:| :----: |
 		|main方法所在的类||
