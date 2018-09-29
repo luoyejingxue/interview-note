@@ -271,7 +271,7 @@
 		}
 	}
 
-	public class TestB extend TestA{
+	public class TestB extends TestA{
 		{
 			System.out.println("Demo B");
 		}
@@ -286,12 +286,26 @@
 	}
 
 	public class ABTest{
-		public static final main(String[] args){
+		public static void main(String[] args){
 			TestB b = new TestB();
+			TestB a = new TestB();
 		}
 	}
 
 	//执行结果
-	
+	//TestA static
+	//TestB static
+	//Demo A
+	//TestA constructor
+	//Demo B
+	//TestB constructor
+
+	//Demo A
+	//TestA constructor
+	//Demo B
+	//TestB constructor
+
+	//执行顺序 父类静态代码块 ——> 子类静态代码块 ——> 父类非静态代码块 ——> 父类构造方法 ——> 子类非静态代码块 ——> 子类构造方法
+	// 静态代码块只执行一次，之后实例化都不在执行，非静态代码块，在每次实例化时都会执行一次
 	
 ```
