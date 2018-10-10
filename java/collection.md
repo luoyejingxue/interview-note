@@ -39,15 +39,24 @@ Iterator<Map.Entry<String, Integer>> entryIterator = map.entrySet().iterator();
 ```
 		
 	并发环境HashMap，容易出现死循环
-		并发场景发生扩容，调用resize()方法里面的rehash()时，容易出现环形链表，这样获取一个不存在的key时，
+		并发场景发生扩容，调用resize()方法里面的rehash()时，需要复制链表，容易出现环形链表，这样获取一个不存在的key时，
 		当key的index正好在环形链表的下标时，就出现死循环
 
 	HashMap在JDK1.7和JDK1.8的比较
-![](https://github.com/luoyejingxue/interview-note/blob/master/java/hashmapcompare.jpg)
+![](https://github.com/luoyejingxue/interview-note/blob/master/java/hashmapcompare.png)
 	
 	HashMap1.8中put的流程图
-![](https://github.com/luoyejingxue/interview-note/blob/master/java/hashmapput.jpg)
+![](https://github.com/luoyejingxue/interview-note/blob/master/java/hashmapput.png)
 
 #### HashSet
+	HashSet底层是基于HashMap实现的
+![](https://github.com/luoyejingxue/interview-note/blob/master/java/hashset.jpg)
 
 #### LinkedHashMap
+	LinkedHashMap 使用的是数组 + 双向链表数据结构
+	LinkedHashMap put过程和在数组中存放的位置与HashMap相同，在LinkedHashMap中定义了header节点，放入的节点的前一个节点指向header
+	LinkedHashMap 遍历是根据header依次遍历，所以LinkedHashMap遍历是有序的
+#### ConcurrentHashMap
+		JDK1.7 的ConcurrentHashMap采用分段锁，对整个桶数组进行分割分段（Segment）
+	每一把锁只锁定容器中一部分数据，多线程访问不同的数据段，就不存在锁竞争，提高并发访问率
+		JDK1.8 直接使用Node数组 + 链表 + 红黑树的数据结构来实现，并发控制使用synchronized和CAS来操作
