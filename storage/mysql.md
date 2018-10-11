@@ -38,9 +38,9 @@
 ##### 索引优化
 	1. 创建复合索引
 		比如
-		```sql
-		  select * from users where area="beijing" and age=22;
-		```
+```sql
+  select * from users where area="beijing" and age=22;
+```
 		如果我们在area和age上分别创建单个索引，由于mysql查询每次只能使用一个索引，所以虽然这样已经相对不做索引时全表扫描提高了效率，
 		但如果在area、age两列上串讲复合索引的话，将带来更改的效率。如果创建（area,age,salary）
 		的复合索引，就相当于创建了（area,age,salary）、（area,age）、（area）三个索引，这被成为最佳左前缀。
